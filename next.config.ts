@@ -1,8 +1,12 @@
-import type { NextConfig } from "next";
+//* @type {import('next').NextConfig} */
+const repo = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/').pop() : 'meu-projeto';
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const NextConfig = {
+  output: 'export',
+  basePath: `/${repo}`,
+  assetPrefix: `/${repo}/`,
+  trailingSlash: true,
   reactStrictMode: true,
-};
+}
 
-export default nextConfig;
+module.exports = NextConfig;
