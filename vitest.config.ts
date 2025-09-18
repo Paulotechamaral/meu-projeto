@@ -1,15 +1,15 @@
-const { defineConfig } = require("vitest/config");
-const path = require("path");
+import { defineConfig } from "vitest/config";
+import path from "path";
 
-module.exports = defineConfig({
+export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: ["./vitest.setup.ts"],
+    setupFiles: "./vitest.setup.ts",
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      "@": path.resolve("./src"),
     },
   },
 });
