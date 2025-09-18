@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: "export",  // já necessário para exportação estática
   images: {
-    unoptimized: true,
+    unoptimized: true, // desativa otimização de imagens
   },
   basePath: process.env.NODE_ENV === "production" ? "/meu-projeto" : "",
 };
 
-module.exports = nextConfig;
+export default nextConfig;
