@@ -29,9 +29,9 @@ jobs:
         run: npm run build
 
       - name: Upload artefatos
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./out
 
       - name: Deploy no GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
