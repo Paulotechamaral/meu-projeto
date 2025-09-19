@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import '@testing-library/jest-dom';
 vi.mock("next/font/google");
 import Home from "../src/pages/index";
 import { describe, expect, test, vi } from "vitest";
