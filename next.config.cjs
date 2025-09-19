@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",  // já necessário para exportação estática
+  output: "export", // necessário para GitHub Pages
   images: {
-    unoptimized: true, // desativa otimização de imagens
+    unoptimized: true, // 👈 desativa Image Optimization
   },
-  basePath: process.env.NODE_ENV === "production" ? "/meu-projeto" : "",
 };
 
 export default nextConfig;
-module.exports = nextConfig;
