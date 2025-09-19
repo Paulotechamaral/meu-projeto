@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
+vi.mock("next/font/google");
 import Home from "../src/pages/index";
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 describe("Página inicial", () => {
   test("renderiza instrução inicial", () => {
