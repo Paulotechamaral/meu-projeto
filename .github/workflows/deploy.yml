@@ -38,7 +38,3 @@ jobs:
       # 6. Build Next.js
       - name: Build Next.js
         run: npm run build
-
-      # 7. (Opcional) Export estático
-      - name: Export Next.js
-        run: npm run export
