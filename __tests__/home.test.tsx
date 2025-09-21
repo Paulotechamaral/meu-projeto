@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom';
-import Home from "../src/pages/index"; // ajuste o caminho se necessário
+import Home from "@/pages/index";
 
 describe("Home page", () => {
   it("renderiza o texto inicial", () => {
