@@ -18,7 +18,7 @@ jobs:
         run: npm ci  # usa package-lock.json para garantir versões exatas
 
       - name: Run tests
-        run: npm run test -- --watch=false
+        run: npm run test
         env:
           NODE_OPTIONS: "--experimental-vm-modules" # Necessário para Vitest rodar ESM no CI
 
