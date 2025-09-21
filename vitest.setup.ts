@@ -1,18 +1,16 @@
 import React from "react";
 import { vi } from "vitest";
 
-// Mock correto para next/font/google
-vi.mock("next/font/google", () => {
-  return {
-    Inter: vi.fn(() => ({
-      className: "mocked-inter",
-      variable: "--font-inter",
-    })),
-  };
-});
+// Mock do next/font/google
+vi.mock("next/font/google", () => ({
+  Inter: () => ({}),
+}));
 
-// Mock para next/image
+// Mock do next/image
 vi.mock("next/image", () => ({
   __esModule: true,
   default: (props: any) => React.createElement("img", props),
 }));
+
+vi.mock("../styles/Home.module.css", () => ({}));
+
