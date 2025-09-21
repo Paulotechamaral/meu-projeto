@@ -7,6 +7,9 @@ const NextConfig = {
   assetPrefix: `/${repo}/`,
   trailingSlash: true,
   reactStrictMode: true,
-}
+  images: {
+    unoptimized: true, // ⚡ desativa a otimização de imagens para export
+  },
+};
 
 module.exports = NextConfig;
