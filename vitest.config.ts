@@ -3,8 +3,11 @@ import path from "path";
 
 export default defineConfig({
   test: {
-    environment: "jsdom", // simula navegador
     globals: true,
+    environment: "jsdom",
+    deps: {
+      inline: ["webidl-conversions", "whatwg-url"]
+    },
     setupFiles: "./vitest.setup.ts",
   },
   resolve: {

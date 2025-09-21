@@ -5,13 +5,16 @@ import React from "react";
 vi.mock("whatwg-url", () => ({}));
 vi.mock("webidl-conversions", () => ({}));
 
-// Caso o Node tente carregar essas libs:
-try {
-  // @ts-ignore
-  require.cache[require.resolve("whatwg-url")] = { exports: {} };
-  // @ts-ignore
-  require.cache[require.resolve("webidl-conversions")] = { exports: {} };
-} catch {}
+if (typeof globalThis.URL === "undefined") {
+  globalThis.URL = class {
+    href: string;
+    constructor(href: string) { this.href = href; }
+  } as any;
+}
+
+vi.mock("whatwg-url", () => ({ URL: globalThis.URL }));
+vi.mock("webidl-conversions", () => ({}));
+
 
 // Mock de CSS modules
 vi.mock("@/styles/Home.module.css", () => ({}));
