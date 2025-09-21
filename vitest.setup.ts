@@ -1,5 +1,5 @@
-import React from "react";
 import { vi } from "vitest";
+import React from "react";
 
 // Mock CSS modules
 vi.mock("../src/styles/Home.module.css", () => ({}));
@@ -10,11 +10,11 @@ vi.mock("next/image", () => ({
   default: (props: any) => React.createElement("img", props),
 }));
 
-// Mock fonts se estiver usando
+// Mock de fonts
 vi.mock("next/font/google", () => ({
   Inter: () => ({}),
 }));
 
-// Mock de dependências que quebram no node
+// Mock de dependências que quebram no Node
 vi.mock("whatwg-url", () => ({}));
 vi.mock("webidl-conversions", () => ({}));
