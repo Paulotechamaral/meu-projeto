@@ -14,7 +14,7 @@ vi.mock("next/image", () => ({
 
 // Mock de fonts
 vi.mock("next/font/google", () => ({
-  Inter: () => ({}),
+  Inter: () => ({ className: "inter-font" }),
 }));
 
 vi.mock("next/font/local", () => ({

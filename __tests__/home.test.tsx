@@ -1,5 +1,5 @@
-import React from "react";
 // __tests__/home.test.tsx
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Home from "../src/pages/index"; // use caminho relativo
