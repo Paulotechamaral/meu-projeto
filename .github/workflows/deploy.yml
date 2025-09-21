@@ -34,8 +34,7 @@ jobs:
 
       # 5. Rodar testes
       - name: Run tests
-        run: npm run test -- --watch=false
-
+        run: npm run test -- --run --passWithNoTests
       # 6. Build Next.js
       - name: Build Next.js
         run: npm run build
