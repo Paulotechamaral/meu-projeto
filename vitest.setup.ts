@@ -1,7 +1,7 @@
 import React from "react";
 import { vi } from "vitest";
 
-// Mock de CSS Modules
+// Mock de CSS modules
 vi.mock("@/styles/Home.module.css", () => ({}));
 
 // Mock de next/image
@@ -15,6 +15,6 @@ vi.mock("next/font/google", () => ({
   Inter: () => ({}),
 }));
 
-// Mocks dos pacotes que quebram no CI
+// Mocks para pacotes problemáticos
 vi.mock("whatwg-url", () => ({}));
 vi.mock("webidl-conversions", () => ({}));
