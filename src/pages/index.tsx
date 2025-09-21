@@ -1,9 +1,26 @@
-import React from "react";  // <--- adicione esta linha
+import React, { useState } from "react"; 
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/globals.module.css";
 
 export default function Home() {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [clientes, setClientes] = useState<{ nome: string; email: string }[]>([]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!nome || !email) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    setClientes([...clientes, { nome, email }]);
+    setNome("");
+    setEmail("");
+  };
+
   return (
     <>
       <Head>
@@ -22,12 +39,58 @@ export default function Home() {
             height={38}
             priority
           />
-          <ol>
-            <li>
-              Get started by editing <code>src/pages/index.tsx</code>.
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
+
+          <h1>Cadastro de Clientes</h1>
+
+          {/* Formulário */}
+          <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
+            <div>
+              <label>Nome:</label>
+              <input
+                type="text"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                style={{ marginLeft: "0.5rem" }}
+              />
+            </div>
+            <div style={{ marginTop: "1rem" }}>
+              <label>Email:</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{ marginLeft: "0.5rem" }}
+              />
+            </div>
+            <button
+              type="submit"
+              style={{
+                marginTop: "1rem",
+                padding: "0.5rem 1rem",
+                background: "blue",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Cadastrar
+            </button>
+          </form>
+
+          {/* Lista de clientes */}
+          <h2>Clientes Cadastrados</h2>
+          {clientes.length === 0 ? (
+            <p>Nenhum cliente cadastrado ainda.</p>
+          ) : (
+            <ul>
+              {clientes.map((c, index) => (
+                <li key={index}>
+                  {c.nome} - {c.email}
+                </li>
+              ))}
+            </ul>
+          )}
         </main>
       </div>
     </>
