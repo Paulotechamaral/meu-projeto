@@ -28,6 +28,8 @@ jobs:
 
       - name: Rodar testes
         run: npm run test -- --watch=false
+        env:
+          NODE_OPTIONS: "--experimental-vm-modules" # Necessário para Vitest rodar ESM no CI
 
       - name: Rodar build
         run: npm run build

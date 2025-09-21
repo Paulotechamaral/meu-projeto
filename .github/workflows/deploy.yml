@@ -1,3 +1,8 @@
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,6 +19,8 @@ jobs:
 
       - name: Run tests
         run: npm run test -- --watch=false
+        env:
+          NODE_OPTIONS: "--experimental-vm-modules" # Necessário para Vitest rodar ESM no CI
 
       - name: Build Next.js
         run: npm run build
