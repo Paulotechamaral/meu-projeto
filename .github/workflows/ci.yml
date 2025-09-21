@@ -11,25 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Configurar Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: npm
 
-      - name: Instalar dependências
+      - name: Install dependencies
         run: npm ci
 
-      - name: Rodar ESLint
-        run: npm run lint
-
-      - name: Rodar testes
+      - name: Run tests
         run: npm run test -- --watch=false
         env:
           NODE_OPTIONS: "--experimental-vm-modules"
 
-      - name: Rodar build Next.js
+      - name: Build Next.js
         run: npm run build

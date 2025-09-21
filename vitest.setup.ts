@@ -10,11 +10,11 @@ vi.mock("next/image", () => ({
   default: (props: any) => React.createElement("img", props),
 }));
 
-// Mock de next/font/google
+// Mock next/font/google
 vi.mock("next/font/google", () => ({
   Inter: () => ({}),
 }));
 
-// Mock módulos que causam erro no CI
+// Mock módulos que quebram no CI
 vi.mock("whatwg-url", () => ({}));
 vi.mock("webidl-conversions", () => ({}));
